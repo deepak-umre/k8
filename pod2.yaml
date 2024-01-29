@@ -12,7 +12,7 @@ spec:
 ...    
 ---
 apiVersion: v1 
-kind: pod 
+kind: Pod 
 metadata:
   name: pod6
 spec:
@@ -21,3 +21,4 @@ spec:
     image: tomcat:latest
     ports:
     - containerPort: 8080
+...
