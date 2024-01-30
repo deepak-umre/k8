@@ -33,12 +33,3 @@ spec:
         - name: mariadb
           containerPort: 3306 
           protocol: TCP    
-        env: 
-    spec: 
-      containers: 
-      - name: mariadb
-        image: mariadb:latest 
-        ports: 
-        - name: mariadb
-          containerPort: 3306 
-          protocol: TCP    
