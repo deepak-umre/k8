@@ -21,15 +21,3 @@ spec:
         - name: http
           containerPort: 80 
           protocol: TCP
-      - name: tomcat
-        image: tomcat:latest 
-        ports: 
-        - name: tomcat
-          containerPort: 8080 
-          protocol: TCP
-      - name: mariadb 
-        image: mariadb:latest 
-        ports: 
-        - name: mariadb
-          containerPort: 3306 
-          protocol: TCP    
