@@ -23,7 +23,7 @@ matadata:
 spec: 
   containers: 
     - name: tomcat
-    image: tomcat:latest
+      image: tomcat:latest
     ports: 
       name: tomcat
     - containerPorts: 8080
