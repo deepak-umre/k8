@@ -4,6 +4,9 @@ metadata:
   name: my-replica
 spec: 
   replicas: 3
+  selector: 
+       matchExpressions: 
+        - { key: app, operater: In, values: [my-app, webapp]}
   template:
     metadata: 
       name: nginx
@@ -42,8 +45,6 @@ spec:
         - name: mariadb
           containerPort: 3306 
           protocol: TCP    
-    selector: 
-       matchExpressions: 
-        - { key: app, operater: In, values: [my-app, webapp]}
+    
         
      
