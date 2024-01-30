@@ -5,8 +5,8 @@ metadata:
 spec: 
   replicas: 3
   selector: 
-       matchExpressions: 
-        - { key: app, operater: In, values: [my-app, webapp]}
+    matchLabels: 
+      app: my-app
   template:
     metadata: 
       name: nginx
@@ -21,21 +21,18 @@ spec:
         - name: http
           containerPort: 80 
           protocol: TCP
-      name: tomcat
-      labels: 
-        app: my-web
-        env: prod
-    spec: 
-      containers: 
       - name: tomcat
         image: tomcat:latest 
         ports: 
         - name: tomcat
           containerPort: 8080 
           protocol: TCP
-      name: mariadb 
-      labels: 
-        app: my-deta
+      - name: mariadb 
+        image: mariadb:latest 
+        ports: 
+        - name: mariadb
+          containerPort: 3306 
+          protocol: TCP    
         env: 
     spec: 
       containers: 
@@ -45,6 +42,3 @@ spec:
         - name: mariadb
           containerPort: 3306 
           protocol: TCP    
-    
-        
-     
