@@ -1,0 +1,49 @@
+apiVersion: apps/v1 
+kind: ReplicaSet
+metadata: 
+  name: my-replica
+spec: 
+  replicas: 3
+  template:
+    metadata: 
+      name: nginx
+      labels: 
+        app: my-app
+        env: dev 
+    spec: 
+      containers: 
+      - name: nginx
+        image: nginx:latest 
+        ports: 
+        - name: http
+          containerPort: 80 
+          protocol: TCP
+      name: tomcat
+      labels: 
+        app: my-web
+        env: prod
+    spec: 
+      containers: 
+      - name: tomcat
+        image: tomcat:latest 
+        ports: 
+        - name: tomcat
+          containerPort: 8080 
+          protocol: TCP
+      name: mariadb 
+      labels: 
+        app: my-deta
+        env: 
+    spec: 
+      containers: 
+      - name: mariadb
+        image: mariadb:latest 
+        ports: 
+        - name: mariadb
+          containerPort: 3306 
+          protocol: TCP    
+    selector: 
+       matchExpressions: 
+        - { key: app, operater: In, values: [my-app, webapp]}
+        
+     
