@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: my-service
 spec:
+  type: NodePort
   selector:
     labels:
       app: my-app
@@ -10,4 +11,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort
+  
