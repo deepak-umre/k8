@@ -18,8 +18,8 @@ spec:
         env: 
           name: MYSQL_ROOT_PASSWORD
           value: "12345"
-selector:
-  matchlabels:
-    app: mariadb
-repplicas: 3
+  selector:
+    matchlabels:
+     app: mariadb
+  repplicas: 3
   
