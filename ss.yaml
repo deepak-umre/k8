@@ -15,7 +15,7 @@ spec:
           porotocol: TCP 
           containerPort: 3306
         env: 
-          -name: MYSQL_ROOT_PASSWORD
+          - name: MYSQL_ROOT_PASSWORD
            value: "12345"
 selector:
   matchlabels:
