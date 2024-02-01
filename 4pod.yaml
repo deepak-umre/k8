@@ -12,8 +12,8 @@ spec:
       - name: maridb
         containerPort: 3306
       env:
-    - name: MYSQL_ROOT_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: my-secret
-          key: MYSQL_ROOT_PASSWORD
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: my-secret
+            key: MYSQL_ROOT_PASSWORD
