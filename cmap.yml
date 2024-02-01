@@ -3,6 +3,4 @@ kind: ConfigMap
 metadata:
   name: example-configmap 
 data:
-  env:
-    - name: MYSQL_ROOT_PASSWORD
-      value: "12345"
+   MYSQL_ROOT_PASSWORD: "12345"
