@@ -10,19 +10,14 @@ data:
 ---
 apiVersion: v1 
 kind: Pod 
-metadata: 
-  name: mariadb 
-  labels:
-    app: my-database 
-spec: 
-  containers: 
-  - name: mariadb
-    image: mariadb
-    ports:
+metadata:
+  name: my-pod
+spec:
+  containers:
     - name: mariadb
-      containerPort: 3306
-    env:
+      image: mariadb
+      envFrom:
         - configMapRef:
-            name: my-configmap 
-            key: MYSQL_ROOT_PASSWORD
+            name: my-configmap
+
 ...
