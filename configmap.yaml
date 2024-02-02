@@ -21,7 +21,7 @@ spec:
     ports:
     - name: mariadb
       containerPort: 3306
-    envFrom:
+    env:
         - configMapRef:
             name: my-configmap 
             key: MYSQL_ROOT_PASSWORD
