@@ -1,27 +1,28 @@
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: nginx
   labels:
-    app: nginx-app
+    app: my-app
 spec:
-  containers:
-  - name: nginx-1
-    image: deepakumre/mobile-page
-    ports:
-    - name: http
-      containerPort: 80
-  - name: nginx-2
-    image: deepakumre/desktop-page
-    ports:
-    - name: http
-      containerPort: 80
-  - name: nginx-3
-    image: deepakumre/home-page
-    ports:
-    - name: http
-      containerPort: 80
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  strategy: 
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: nginx
+        image: deepakumre/mobile-page
+        ports:
+        - containerPort: 80
+
 ...
 ---
 apiVersion: v1
@@ -29,9 +30,9 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  type: ClusterIp
+  type: ClusterIP
   selector:
-      app: nginx-app 
+      app: my-app
   ports:
     - port: 80
       targetPort: 80
