@@ -16,7 +16,6 @@ spec:
             name: test
             port:
               number: 80
-      - http:
       - path: /mobile
         pathType: Prefix
         backend:
