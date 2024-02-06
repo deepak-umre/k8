@@ -4,26 +4,31 @@ kind: Deployment
 metadata:
   name: nginx
   labels:
-  app: my-app
+    app: my-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      run: nginx
+      app: my-app
+  strategy: 
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        run: nginx
+        app: my-app
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:latest
         ports:
         - containerPort: 80
         resources:
-          limits:
-            cpu: 500m
           requests:
-            cpu: 200m
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
 ...
 ---
 apiVersion: v1
