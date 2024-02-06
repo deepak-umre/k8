@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: mariadb
+      image: mariadb
+      envFrom:
+        - configMapRef:
+            name: example-configmap
