@@ -21,13 +21,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: my-service3
+            name: my-service2
             port:
               number: 80
       - path: /desktop
         pathType: Prefix
         backend:
           service:
-            name: my-service2
+            name: my-service3
             port:
               number: 80

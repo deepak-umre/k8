@@ -4,16 +4,16 @@ kind: Deployment
 metadata:
   name: my-deployment3
   labels:
-    app: nginx
+    app: nginx-desk
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-desk
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-desk
     spec:
       containers:
       - name: nginx
@@ -27,9 +27,9 @@ kind: Service
 metadata:
   name: my-service3
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
-      app: nginx
+      app: nginx-desk
   ports:
     - port: 80
       targetPort: 80
