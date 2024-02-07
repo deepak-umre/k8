@@ -17,7 +17,7 @@ spec:
             name: my-service1
             port:
               number: 80
-       - path: /mobile
+      - path: /mobile
         pathType: Prefix
         backend:
           service:
