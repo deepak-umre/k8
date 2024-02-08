@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod3
+  name: mongo-db
   labels:
-     app: my-app
+     app: my-database
 spec:
   containers:
-  - name: nginx
-    image: nginx:latest
+  - name: mongodb
+    image: deepakumre/mongodb
     ports:
-    - containerPort: 80
+    - containerPort: 27017
 ...
 ---
 apiVersion: v1
@@ -22,7 +22,8 @@ spec:
   selector:
     app: my-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+    - port: 27017
+      targetPort: 27017
+      nodePort: 30001
+
 ...

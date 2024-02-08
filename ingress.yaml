@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: aa211e7242388473a95691d04e321044-598158646.sa-east-1.elb.amazonaws.com
+    http: # Correct indentation
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
+      - path: /mobile/
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service2
+            port:
+              number: 80
+      - path: /desktop/
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service3
+            port:
+              number: 80
+

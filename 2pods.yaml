@@ -2,23 +2,28 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod7
+  name: nginx
+  labels:
+    app: nginx
 spec:
   containers:
   - name: nginx
     image: nginx:latest
     ports:
-    - containerPort: 80
-...    
+    - name: http
+      containerPort: 80
 ---
-apiVersion: v1 
-kind: Pod 
+apiVersion: v1
+kind: Pod
 metadata:
-  name: pod6
+  name: tomcat
+  labels:
+    app: tomcat
 spec:
   containers:
   - name: tomcat
     image: tomcat:latest
     ports:
-    - containerPort: 8080
-...
+    - name: tomcat
+      containerPort: 8080
+---
