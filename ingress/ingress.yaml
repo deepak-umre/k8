@@ -7,24 +7,24 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: aa211e7242388473a95691d04e321044-598158646.sa-east-1.elb.amazonaws.com
-    http: # Correct indentation
+  - host: a1e8d08cc383146bb966ad863551ea44-460567401.sa-east-1.elb.amazonaws.com 
+    http: 
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: my-service
+            name: my-service1
             port:
               number: 80
-      - path: /mobile/
+      - path: /mobile
         pathType: Prefix
         backend:
           service:
             name: my-service2
             port:
               number: 80
-      - path: /desktop/
+      - path: /desktop
         pathType: Prefix
         backend:
           service:

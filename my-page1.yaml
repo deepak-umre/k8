@@ -4,22 +4,22 @@ kind: Deployment
 metadata:
   name: nginx1
   labels:
-    app: my-app
+    app: my-app1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: my-app1
   strategy: 
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: my-app
+        app: my-app1
     spec:
       containers:
       - name: nginx
-        image: deepakumre/mobile-page
+        image: deepakumre/homepage
         ports:
         - containerPort: 80
 
@@ -28,11 +28,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: my-service1
 spec:
   type: ClusterIP
   selector:
-      app: my-app
+      app: my-app1
   ports:
     - port: 80
       targetPort: 80
